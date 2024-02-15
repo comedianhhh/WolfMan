@@ -1,0 +1,155 @@
+{
+    "name": "MobileMovements",
+    "maps": [
+        {
+            "name": "MobileMovementMap",
+            "id": "9ae03f8c-6de5-47eb-8bd0-aa84fe4fc375",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "d0851eac-cce5-4259-9868-c4f12373aec2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Value",
+                    "id": "dd2f42d1-af99-4ee4-9eb4-2a3cd1be06a2",
+                    "expectedControlType": "Key",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Touch0",
+                    "type": "PassThrough",
+                    "id": "18954aa4-1a6b-4e30-8a0b-9c77a2ed5629",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Touch1",
+                    "type": "PassThrough",
+                    "id": "86d44faa-ea5f-4658-91fb-d7611f242796",
+                    "expectedControlType": "Touch",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "93bc8a06-395c-4268-a3da-758bd6b350bb",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "7002685d-dcaa-44fc-81a2-b82a16b91af3",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d7b9329a-f8fb-4710-9755-2140a1563a1f",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "eee5291a-76d1-43a9-bbc9-c6454902215b",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "332588d5-f091-41db-85d3-6ba0315d8e91",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "01d61742-c558-4aef-aed1-bad699e7c2b1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e69da264-9c3f-4a24-9cee-55fbc2b78887",
+                    "path": "<Touchscreen>/touch0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Touch0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f4c613d-54e2-4422-9ed0-0ceb8b086732",
+                    "path": "<Touchscreen>/touch1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MobileMovements",
+                    "action": "Touch1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "MobileMovements",
+            "bindingGroup": "MobileMovements",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
