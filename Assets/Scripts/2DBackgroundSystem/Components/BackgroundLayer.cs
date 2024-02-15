@@ -72,7 +72,7 @@ public class BackgroundLayer : MonoBehaviour {
         if(!isStatic) {
             SpriteRenderer objRender = gameObject.GetComponent<SpriteRenderer>();
             _hDistanceBetweenBgs = 2 * (1f / gameObject.transform.parent.localScale.x) * (objRender.bounds.max.x - transform.position.x);
-            Debug.Log(objRender.bounds.max.x);
+            //Debug.Log(objRender.bounds.max.x);
             _vDistanceBetweenBgs = 2 * (1f / gameObject.transform.parent.localScale.y) * (objRender.bounds.max.y - transform.position.y);
             SetupParallax();
         }
