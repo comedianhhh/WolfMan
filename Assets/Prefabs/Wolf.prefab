@@ -94,9 +94,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.27758592}
+  m_Offset: {x: -0.101329505, y: -0.28}
   serializedVersion: 2
-  m_Radius: 0.46016854
+  m_Radius: 0.47357994
 --- !u!114 &9019008836420779734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   moveTime: 1
   speed: 10
   health: 3
+  gameSceneManager: {fileID: 0}
   CoinSound: {fileID: 8300000, guid: 2929e24f55a003e429dddac5889ec60c, type: 3}
   IdleState: Idle
   WalkState: Walk

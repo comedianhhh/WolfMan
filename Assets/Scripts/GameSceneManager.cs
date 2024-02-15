@@ -13,7 +13,7 @@ public class GameSceneManager : MonoBehaviour
 
     public TMP_Text tmLevel;
 
-    private int MAX_TIME = 45;
+    private int MAX_TIME = 20;
     private int SCORE_INCREMENT = 10;
     private int currentTime;
     public int currentScore;
