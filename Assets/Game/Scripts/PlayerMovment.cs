@@ -54,12 +54,14 @@ public class PlayerMovment : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
     void Start()
     {
         moveTime = Mathf.Max(moveTime, 0.5f);
+        gameSceneManager = FindObjectOfType<GameSceneManager>();
     }
 
     private void OnEnable()

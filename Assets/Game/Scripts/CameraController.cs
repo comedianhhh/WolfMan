@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,7 +13,7 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         // Assign the character's transform to the character variable
-        character = GameObject.FindGameObjectWithTag("Player").transform;
+
         if (Camera.main != null)
         {
             AudioListener audioListener = Camera.main.GetComponent<AudioListener>();
@@ -23,15 +24,23 @@ public class CameraController : MonoBehaviour
         }
     }
     
+    
     void FixedUpdate()
     {
-        // Create a desired position vector that is adjusted for the offset, but ignores the Z-axis of the character
-        Vector3 desiredPosition = new Vector3(character.position.x + offset.x, character.position.y + offset.y, transform.position.z);
+        if (character == null)
+        {
+            character = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        else
+        {
+            // Create a desired position vector that is adjusted for the offset, but ignores the Z-axis of the character
+            Vector3 desiredPosition = new Vector3(character.position.x + offset.x, character.position.y + offset.y, transform.position.z);
 
-        // Use Lerp to smoothly interpolate between the camera's current position and the desired position
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            // Use Lerp to smoothly interpolate between the camera's current position and the desired position
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
 
-        // Update the camera's position
-        transform.position = smoothedPosition;
+            // Update the camera's position
+            transform.position = smoothedPosition;
+        }
     }
 }

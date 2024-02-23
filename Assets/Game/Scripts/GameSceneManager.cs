@@ -95,9 +95,15 @@ public class GameSceneManager : MonoBehaviour
     }
     public void SwitchLevel()
     {
-        SceneLoader.Instance.LoadScene(NextScene);
+        // Set flag first to prevent multiple calls if Update is called again before the level loads
         isLoadedNextLevel = true;
-        SceneLoader.Instance.UnloadScene(MainScene);
+
+        // Call LoadScene with a callback to unload the previous scene after loading is complete
+        SceneLoader.Instance.LoadScene(NextScene, () =>
+        {
+            SceneLoader.Instance.UnloadScene(MainScene);
+        });
+        Camera.main.gameObject.GetComponent<CameraController>().enabled = true;
     }
 
     public IEnumerator FadeInCanvas()

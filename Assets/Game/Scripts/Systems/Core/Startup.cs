@@ -45,7 +45,7 @@ public class Startup : MonoBehaviour
         SceneLoader.Instance.OnSceneLoadedEvent -= SceneLoadedCallback;
         MenuManager.Instance.HideMenu(MenuManager.Instance.LoadingScreenClassifier);
 
-#if UNITY_EDITOR
+
         if (ShowMainMenu)
         {
             MenuManager.Instance.ShowMenu(MenuManager.Instance.MainMenuClassifier);
@@ -55,7 +55,6 @@ public class Startup : MonoBehaviour
             MenuManager.Instance.HideMenu(MenuManager.Instance.MainMenuClassifier);
         }
     }
-#else
-            MenuManager.Instance.ShowMenu(MainMenuClassifier);
-#endif
+
+
 }

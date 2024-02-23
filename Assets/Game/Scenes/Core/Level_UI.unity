@@ -2997,10 +2997,11 @@ MonoBehaviour:
   currentScore: 0
   GameOverCanvas: {fileID: 2546997380240588287}
   MainCanvas: {fileID: 1602183025614285904}
+  isLoadedNextLevel: 0
   MainScene:
-    sceneAsset: {fileID: 102900000, guid: 0d07d3ad2c513c94492b0a2aa5982d0e, type: 3}
-    scenePath: Assets/Game/Scenes/Level_Main.unity
-    sceneName: Level_Main
+    sceneAsset: {fileID: 102900000, guid: 6b591f882b9ae8e4a88bac591d794ce8, type: 3}
+    scenePath: Assets/Game/Scenes/Level_Start.unity
+    sceneName: Level_Start
   NextScene:
     sceneAsset: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
     scenePath: Assets/Game/Scenes/Level_Rooms.unity

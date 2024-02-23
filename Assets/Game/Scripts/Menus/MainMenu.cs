@@ -13,8 +13,8 @@ public class MainMenu : Menu
 
     public void OnStartGame()
     {
-        
-        SceneLoader.Instance.LoadScene(LevelToLoad);
+
+        SceneLoader.Instance.LoadScene(LevelToLoad, true);
         MenuManager.Instance.HideMenu(menuClassifier);
         MenuManager.Instance.ShowMenu(hudClassifier);
         sceneManager.SetActive(true);

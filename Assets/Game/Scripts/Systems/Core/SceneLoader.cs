@@ -46,6 +46,7 @@ public class SceneLoader : Singleton<SceneLoader>
         loadedScenes.Clear();
         loadedScenes.AddRange(scenes);
         OnSceneLoadedEvent?.Invoke(loadedScenes);
+        Debug.Log("Switch");
     }
 
     IEnumerator loadScene(string scene, bool showLoadingScreen, bool raiseEvent)
@@ -96,10 +97,7 @@ public class SceneLoader : Singleton<SceneLoader>
         StartCoroutine(unloadScene(scene));
     }
 
-    public void UnloadScenes(List<string> scenes)
-    {
-        StartCoroutine(unloadScenes(scenes));
-    }
+
 
     IEnumerator unloadScenes(List<string> scenes)
     {
@@ -130,4 +128,59 @@ public class SceneLoader : Singleton<SceneLoader>
         sync = Resources.UnloadUnusedAssets();
         while (sync.isDone == false) { yield return null; }
     }
+    public void LoadScene(string scene, Action callback = null, bool showLoadingScreen = true)
+    {
+        StartCoroutine(LoadSceneCoroutine(scene, showLoadingScreen, callback));
+    }
+
+    private IEnumerator LoadSceneCoroutine(string scene, bool showLoadingScreen, Action callback)
+    {
+        if (showLoadingScreen)
+        {
+            MenuManager.Instance.ShowMenu(MenuManager.Instance.LoadingScreenClassifier);
+        }
+
+        // Begin loading the scene asynchronously.
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        if (showLoadingScreen)
+        {
+            MenuManager.Instance.HideMenu(MenuManager.Instance.LoadingScreenClassifier);
+        }
+
+        // Scene has loaded, now invoke the callback.
+        callback?.Invoke();
+    }
+    public void UnloadScenes(List<string> scenes)
+    {
+        StartCoroutine(UnloadScenesCoroutine(scenes));
+    }
+
+    private IEnumerator UnloadScenesCoroutine(List<string> scenes)
+    {
+        foreach (string scene in scenes)
+        {
+            yield return StartCoroutine(UnloadSceneCoroutine(scene));
+        }
+    }
+
+    private IEnumerator UnloadSceneCoroutine(string scene)
+    {
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(scene);
+        while (!asyncUnload.isDone)
+        {
+            yield return null;
+        }
+
+        // Optionally, unload unused assets to free up memory.
+        yield return Resources.UnloadUnusedAssets();
+    }
+    // Other methods (e.g., UnloadScene) remain unchanged
 }
+
